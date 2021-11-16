@@ -80,7 +80,6 @@ export const fetchConversations = () => async (dispatch) => {
         })
       }
     })
-    console.log('wow', data);
     dispatch(gotConversations(data));
   } catch (error) {
     console.error(error);
