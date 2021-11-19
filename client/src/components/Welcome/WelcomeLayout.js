@@ -62,7 +62,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'white',
     color: '#367bff',
     padding: '20px 40px',
-    boxShadow: '0 0 10px #d2d2d2',
+    minWidth: '200px',
+    boxShadow: '0 0 20px #dae2ea',
     fontSize: '20px',
     borderRadius: '10px',
     [theme.breakpoints.down('xs')]: {
