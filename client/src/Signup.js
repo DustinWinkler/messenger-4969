@@ -5,16 +5,16 @@ import {
   Grid,
   Typography,
   Button,
-  useTheme,
 } from "@material-ui/core";
 import { register } from "./store/utils/thunkCreators";
 import WelcomeLayout from "./components/Welcome/WelcomeLayout";
 import WelcomeTextInput from "./components/Welcome/WelcomeTextInput";
+import { sharedStyles } from "./components/Welcome/sharedStyles";
 
 const Login = (props) => {
   const { user, register } = props;
   const [formErrorMessage, setFormErrorMessage] = useState({});
-  const theme = useTheme()
+  const classes = sharedStyles()
 
   const handleRegister = async (event) => {
     event.preventDefault();
@@ -37,16 +37,16 @@ const Login = (props) => {
 
   return (
     <WelcomeLayout type="register">
-      <form style={theme.welcomeForm} onSubmit={handleRegister}>
-          <Typography style={theme.welcomeText} variant="h4">Create an account.</Typography>
+      <form className={classes.welcomeForm} onSubmit={handleRegister}>
+          <Typography className={classes.welcomeText} variant="h4">Create an account.</Typography>
           <Grid>
             <WelcomeTextInput label="Username" />
             <WelcomeTextInput label="E-mail address" name="email" type="email" />
             <WelcomeTextInput label="Password" error={formErrorMessage.confirmPassword} />
             <WelcomeTextInput label="Confirm Password" type="password" name="confirmPassword" error={formErrorMessage.confirmPassword} />
             
-            <Grid style={theme.submitBtnContainer}>
-              <Button style={theme.submitBtn} type="submit" variant="contained" size="large">
+            <Grid className={classes.submitBtnContainer}>
+              <Button className={classes.submitBtn} type="submit" variant="contained" size="large">
                 Create
               </Button>
             </Grid>

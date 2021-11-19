@@ -5,15 +5,15 @@ import {
   Grid,
   Typography,
   Button,
-  useTheme,
 } from "@material-ui/core";
 import { login } from "./store/utils/thunkCreators";
 import WelcomeLayout from "./components/Welcome/WelcomeLayout";
 import WelcomeTextInput from "./components/Welcome/WelcomeTextInput";
+import { sharedStyles } from "./components/Welcome/sharedStyles";
 
 const Login = (props) => {
   const { user, login } = props;
-  const theme = useTheme()
+  const classes = sharedStyles()
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -30,15 +30,15 @@ const Login = (props) => {
 
   return (
     <WelcomeLayout type="login">
-      <form style={theme.welcomeForm} onSubmit={handleLogin}>
-        <Typography style={theme.welcomeText} variant="h4">Welcome back!</Typography>
+      <form className={classes.welcomeForm} onSubmit={handleLogin}>
+        <Typography className={classes.welcomeText} variant="h4">Welcome back!</Typography>
         <Grid>
 
           <WelcomeTextInput label="Username" />
           <WelcomeTextInput label="Password" />
 
-          <Grid style={theme.submitBtnContainer}>
-            <Button style={theme.submitBtn} type="submit"  variant="contained" size="large">
+          <Grid className={classes.submitBtnContainer}>
+            <Button className={classes.submitBtn} type="submit"  variant="contained" size="large">
               Login
             </Button>
           </Grid>
