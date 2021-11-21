@@ -46,7 +46,7 @@ const Login = (props) => {
             <WelcomeTextInput label="Confirm Password" type="password" name="confirmPassword" error={formErrorMessage.confirmPassword} />
             
             <Grid className={classes.submitBtnContainer}>
-              <Button className={classes.submitBtn} type="submit" variant="contained" size="large">
+              <Button className={classes.submitBtn} type="submit" variant="contained" color="primary" size="large">
                 Create
               </Button>
             </Grid>

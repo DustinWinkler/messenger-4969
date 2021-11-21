@@ -2,25 +2,23 @@ import { makeStyles } from "@material-ui/core";
 
 export const sharedStyles = makeStyles(theme => ({
   welcomeForm: {
-    marginTop: '100px',
+    marginTop: theme.spacing(12),
     maxWidth: '1200px',
     [theme.breakpoints.down('sm')]: {
-      marginTop: '50px'
+      marginTop: theme.spacing(6)
     }
   },
   welcomeText: {
     fontWeight: 600,
-    marginBottom: '50px'
+    marginBottom: theme.spacing(6)
   },
   submitBtnContainer: {
     textAlign: 'center'
   },
   submitBtn: {
-    backgroundColor: '#3a8dff',
-    color: 'white',
-    marginTop: '50px',
-    padding: '20px 70px',
-    fontSize: '20px',
+    marginTop: theme.spacing(6),
+    padding: `${theme.spacing(3)}px ${theme.spacing(9)}px`,
+    fontSize: '1.5rem',
     boxShadow: 'none'
   }
 }))

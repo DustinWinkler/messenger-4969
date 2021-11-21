@@ -38,7 +38,7 @@ const Login = (props) => {
           <WelcomeTextInput label="Password" />
 
           <Grid className={classes.submitBtnContainer}>
-            <Button className={classes.submitBtn} type="submit"  variant="contained" size="large">
+            <Button className={classes.submitBtn} type="submit"  variant="contained" color="primary" size="large">
               Login
             </Button>
           </Grid>

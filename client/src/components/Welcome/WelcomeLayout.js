@@ -15,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     height: '100vh',
     color: 'white',
-    fontSize: '40px',
     textAlign: 'center',
     display: 'flex',
     flexDirection: 'column',
@@ -23,16 +22,16 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     [theme.breakpoints.down('sm')]: {
       width: '0px',
-      padding: '0'
     }
   },
   bubble: {
     width: '100px',
     alignSelf: 'center',
-    marginBottom: '50px'
+    marginBottom: theme.spacing(4)
   },
   converse: {
-    padding: '0 80px'
+    paddingLeft: theme.spacing(10),
+    paddingRight: theme.spacing(10)
   },
   formContainer: {
     paddingLeft: '100px',
@@ -49,25 +48,25 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     gap: '30px',
-    color: 'gray',
-    marginTop: '20px',
+    color: theme.palette.secondary.main,
+    marginTop: theme.spacing(3),
     marginLeft: 'auto',
     [theme.breakpoints.down('xs')]: {
       display: 'block',
-      margin: '10px auto',
+      margin: `${theme.spacing(2)}px auto`,
       textAlign: 'center'
     }
   },
   redirect: {
     backgroundColor: 'white',
-    color: '#367bff',
-    padding: '20px 40px',
+    color: theme.palette.primary.main,
+    padding: `${theme.spacing(3)}px ${theme.spacing(5)}px`,
     minWidth: '200px',
     boxShadow: '0 0 20px #dae2ea',
     fontSize: '20px',
     borderRadius: '10px',
     [theme.breakpoints.down('xs')]: {
-      marginTop: '10px'
+      marginTop: theme.spacing(1)
     }
   }
 }))
