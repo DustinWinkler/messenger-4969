@@ -10,7 +10,8 @@ import { clearOnLogout } from "../store/index";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: "100vh"
+    // -64px is needed until the logout button gets a home and doesnt overflow the page
+    height: "calc(100vh - 64px)"
   }
 }));
 

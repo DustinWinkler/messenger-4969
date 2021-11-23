@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box, Typography } from "@material-ui/core";
+import { useImageStyles } from "./imageStyling";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -29,12 +30,18 @@ const useStyles = makeStyles(() => ({
 
 const SenderBubble = (props) => {
   const classes = useStyles();
-  const { time, text } = props;
+  const sharedClasses = useImageStyles()
+  const { time, text, images } = props;
   return (
     <Box className={classes.root}>
       <Typography className={classes.date}>{time}</Typography>
       <Box className={classes.bubble}>
         <Typography className={classes.text}>{text}</Typography>
+      </Box>
+      <Box className={sharedClasses.imagesContainer} justifyContent="flex-end">
+        {images && images.map(imageUrl => {
+          return <img className={sharedClasses.image} src={imageUrl} alt="user submitted" />
+        })}
       </Box>
     </Box>
   );
