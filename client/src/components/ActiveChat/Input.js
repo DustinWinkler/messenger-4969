@@ -5,8 +5,9 @@ import InsertPhotoOutlinedIcon from '@mui/icons-material/InsertPhotoOutlined';im
 import { postMessage } from "../../store/utils/thunkCreators";
 import ImageUpload from "./ImageUpload";
 import axios from "axios";
-import { Typography } from "@mui/material";
+import { Badge } from "@mui/material";
 import { Box } from "@mui/system";
+require('dotenv').config()
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,20 +33,6 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       color: 'gray'
     }
-  },
-  attachmentsCount: {
-    position: 'absolute',
-    top: 40,
-    right: 20,
-    backgroundColor: theme.palette.primary.main,
-    width: 16,
-    height: 16,
-    textAlign: 'center',
-    borderRadius: 100,
-    color: 'white',
-    "& > p": {
-      fontSize: 10
-    }
   }
 }));
 
@@ -66,16 +53,16 @@ const Input = (props) => {
   const handleFile = (file) => {
     //upload to cloudinary and place into attachments
     let formData = new FormData()
-    formData.append("api_key", "733767869653349")
+    formData.append("api_key", process.env.REACT_APP_CLOUDINARY_API_KEY)
     formData.append("file", file)
     // in case two files with same name are uploaded
     formData.append("public_id", file.name + Math.floor((Math.random() * 1000)+1))
     formData.append("upload_preset", "zsmszzxw")
 
     setUploading(true)
-    uninterceptedAxios.post("https://api.cloudinary.com/v1_1/dgogaeujr/image/upload", formData, {})
+    console.log(process.env.REACT_APP_CLOUDINARY_CLOUD_NAME);
+    uninterceptedAxios.post(`https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}/image/upload`, formData, {})
     .then(result => {
-      console.log(result);
       setAttachments([...attachments, result.data.url])
       setShowModal(false)
       setUploading(false)
@@ -112,11 +99,12 @@ const Input = (props) => {
           name="text"
           onChange={handleChange}
         />
-        <InsertPhotoOutlinedIcon className={classes.icon} onClick={toggleModal} />
-        {attachments.length > 0 && 
-        <Box className={classes.attachmentsCount}>
-          <Typography>{attachments.length}</Typography>
-        </Box>}
+        
+        <Box className={classes.icon}>
+          <Badge color="primary" badgeContent={attachments.length}>
+            <InsertPhotoOutlinedIcon  onClick={toggleModal} />
+          </Badge>
+        </Box>
 
       </FormControl>
       {showModal && <ImageUpload handleFile={handleFile} toggleModal={toggleModal} uploading={uploading} />}
