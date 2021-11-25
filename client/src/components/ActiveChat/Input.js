@@ -60,7 +60,6 @@ const Input = (props) => {
     formData.append("upload_preset", "zsmszzxw")
 
     setUploading(true)
-    console.log(process.env.REACT_APP_CLOUDINARY_CLOUD_NAME);
     uninterceptedAxios.post(`https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}/image/upload`, formData, {})
     .then(result => {
       setAttachments([...attachments, result.data.url])

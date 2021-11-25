@@ -4,6 +4,12 @@ export const useCurrentUserStyles = makeStyles(theme => ({
   root: {
     display: "flex",
     flexDirection: "column",
+    alignItems: "flex-end",
+    marginBottom: theme.spacing(1)
+  },
+  message: {
+    display: "flex",
+    flexDirection: "column",
     alignItems: "flex-end"
   },
   usernameDate: {
@@ -27,7 +33,12 @@ export const useCurrentUserStyles = makeStyles(theme => ({
 
 export const useOtherUserStyles = makeStyles(theme => ({
   root: {
-    display: "flex"
+    display: "flex",
+    marginBottom: theme.spacing(1)
+  },
+  message: {
+    display: "flex",
+    flexDirection: "column"
   },
   avatar: {
     height: 30,
@@ -40,7 +51,8 @@ export const useOtherUserStyles = makeStyles(theme => ({
   },
   bubble: {
     backgroundImage: "linear-gradient(225deg, #6CC1FF 0%, #3A8DFF 100%)",
-    borderRadius: "0 10px 10px 10px"
+    borderRadius: "0 10px 10px 10px",
+    width: "max-content"
   },
   text: {
     fontSize: 14,

@@ -15,7 +15,7 @@ const MessageBubble = (props) => {
       {otherUser && 
         <Avatar alt={otherUser.username} src={otherUser.photoUrl} className={classes.avatar}></Avatar>
       }
-      <Box className={classes.root}>
+      <Box className={classes.message}>
         <Typography className={classes.usernameDate}>
           {otherUser?.username} {time}
         </Typography>
